@@ -26,11 +26,11 @@ export const Route = createFileRoute("/email")({
 Write a workplace email.
 
 ## Context
-- Recipient: ${v.recipient || "not specified"}
-- Tone: ${v.tone}
-- Length: ${v.length}
+- Recipient: ${v["recipient"] || "not specified"}
+- Tone: ${v["tone"]}
+- Length: ${v["length"]}
 - Purpose and key points:
-${v.purpose}
+${v["purpose"]}
 
 ## Output format
 **Subject:** <subject line>

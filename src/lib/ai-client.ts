@@ -8,7 +8,7 @@ export async function streamAI(
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ system: opts.system, messages: opts.messages }),
-    signal: opts.signal,
+    signal: opts.signal ?? null,
   });
   if (!res.ok || !res.body) {
     throw new Error((await res.text()) || "The AI request failed.");

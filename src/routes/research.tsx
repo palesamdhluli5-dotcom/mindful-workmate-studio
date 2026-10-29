@@ -22,10 +22,10 @@ export const Route = createFileRoute("/research")({
         { name: "depth", label: "Depth", type: "select", options: ["Quick overview", "Standard briefing", "Deep dive"] },
       ]}
       buildPrompt={(v) => `## Task
-Produce a ${v.depth.toLowerCase()} on the question below for: ${v.audience || "a general professional audience"}.
+Produce a ${(v["depth"] ?? "").toLowerCase()} on the question below for: ${v["audience"] || "a general professional audience"}.
 
 ## Question
-${v.topic}
+${v["topic"]}
 
 ## Output format
 ### TL;DR

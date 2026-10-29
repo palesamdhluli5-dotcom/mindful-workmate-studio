@@ -22,13 +22,13 @@ export const Route = createFileRoute("/meetings")({
         { name: "style", label: "Summary style", type: "select", options: ["Executive brief", "Detailed minutes", "Bullet highlights"] },
       ]}
       buildPrompt={(v) => `## Task
-Summarize the meeting below in the style: ${v.style}.
+Summarize the meeting below in the style: ${v["style"]}.
 
 ## Meeting
-Title: ${v.title || "Untitled"}
+Title: ${v["title"] || "Untitled"}
 Notes:
 """
-${v.notes}
+${v["notes"]}
 """
 
 ## Output format

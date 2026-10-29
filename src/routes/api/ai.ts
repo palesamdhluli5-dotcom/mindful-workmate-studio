@@ -16,7 +16,7 @@ export const Route = createFileRoute("/api/ai")({
           .filter((m) => typeof m.content === "string" && m.content.trim())
           .slice(-30) as ModelMessage[];
         if (!messages.length) return new Response("No input", { status: 400 });
-        const apiKey = process.env.LOVABLE_API_KEY;
+        const apiKey = process.env["LOVABLE_API_KEY"];
         if (!apiKey) return new Response("AI is not configured", { status: 401 });
 
         let runId: string | undefined;

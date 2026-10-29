@@ -23,13 +23,13 @@ export const Route = createFileRoute("/planner")({
         { name: "constraints", label: "Deadlines & constraints", type: "textarea", rows: 3, placeholder: "e.g. Proposal due Friday, meetings every morning 9–10" },
       ]}
       buildPrompt={(v) => `## Task
-Create a prioritised work plan for: ${v.timeframe}.
+Create a prioritised work plan for: ${v["timeframe"]}.
 
 ## Inputs
 - Goals/tasks:
-${v.goals}
-- Available hours per day: ${v.hours || "not specified (assume 6)"}
-- Deadlines & constraints: ${v.constraints || "none given"}
+${v["goals"]}
+- Available hours per day: ${v["hours"] || "not specified (assume 6)"}
+- Deadlines & constraints: ${v["constraints"] || "none given"}
 
 ## Output format
 ### Priorities
